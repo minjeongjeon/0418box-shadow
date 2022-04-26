@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>box-shadow</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        /* 공통클래스로 하면 편함 */
+        .left {
+            float: left;
+        }
+        .right {
+            float: right;
+        }
+        .clear::after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+        /* // */
+        h1, p {
+            font-size: 20px;
+        }
+        body {
+            background-color: hsl(50, 90%, 50%);
+        }
+        .wrap {
+            position: relative;
+            width: 600px;
+            margin: 0 auto;
+        }
+        .box1 {
+            width: 300px;
+            height: 50px;
+            text-align: center;
+            background-color: white;
+            padding: 2em;   /* 32px */
+            margin: 200px auto;
+            color: blue;
+            box-shadow: 0px 0px 20px -10px currentColor;
+            box-shadow: 10px 10px 20px 10px currentColor, 20px 20px 20px 20px red,
+                        100px -100px 80px green,
+                        -100px -100px 80px purple,
+                        -100px 100px 80px darkorange;
+            box-shadow: 0 0 15px 0 rgba(0,0,0,.3);
+            box-shadow: inset 5px 5px 15px rgb(203, 250, 73);
+        }
+        .box2, .box3 {
+            width: 200px;
+            text-align: center;
+            background-color: white;
+            padding: 2em;
+        }
+        .box-lower {
+            box-shadow: 0 5px 15px 0 rgba(0,0,0,.5)
+        }
+        .box-higher {
+            box-shadow: 0 5px 60px 0 rgba(0,0,0,.5)
+        }
+        .box3 {
+            margin: 500px auto;
+            box-shadow: 0 5px 15px 0 rgba(0,0,0,.5);
+            transform: scale(1);
+            transition: transform 0.5s;
+           
+        }
+        .box3:hover {
+            transform: scale(1.2);
+            /* transform: translateZ(20px); */
+            box-shadow: 0 5px 70px 0 rgba(0,0,0,.5);
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap clear">
+        <div class="box1">
+            <h1>The box-shadow property</h1>
+        </div>
+        <div class="box2 box-higher left">
+            <p>this box is higher than the other one</p>
+        </div>
+        <div class="box2 box-lower right">
+            <p>this box is higher than the other one</p>
+        </div>
+        <div class="box3">
+            <p>A lonly box</p>
+        </div>
+    </div>
+</body>
+</html>
